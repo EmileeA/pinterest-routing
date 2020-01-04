@@ -1,5 +1,4 @@
 import React from 'react';
-// import {Link} from 'react-router-dom';
 import './NewBoard.scss';
 
 class NewBoard extends React.Component {
