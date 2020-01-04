@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
-class MyNavbar extends React.Component {
+class MyNavBar extends React.Component {
 static propTypes = {
   authed: PropTypes.bool,
 }
@@ -34,4 +34,4 @@ static propTypes = {
       );
     }
 }
-export default MyNavbar;
+export default MyNavBar;
