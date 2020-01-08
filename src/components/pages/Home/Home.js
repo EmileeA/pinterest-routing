@@ -3,9 +3,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import boardData from '../../../helpers/data/boardData';
 import authData from '../../../helpers/data/authData';
+import Board from '../../shared/Board/Board';
 import './Home.scss';
 
 class Home extends React.Component {
+  state = {
+    boards: [],
+  };
+
   componentDidMount() {
     boardData.getBoardsByUid(authData.getUid())
     // this is setting the state of boards
@@ -18,8 +23,9 @@ class Home extends React.Component {
     return (
       <div className="Home">
         <h1>HOME</h1>
-        <Link className="btn btn-primary" to="/board/new">Create New Board</Link>
-        <Link className="btn btn-primary" to={`/board/${boardId}`}>New Board Page</Link>
+        <div className="boards d-flex flex-wrap">
+        {this.state.boards.map((board) => <Board key={board.id} board={board} />)}
+      </div>
       </div>
     );
   }
