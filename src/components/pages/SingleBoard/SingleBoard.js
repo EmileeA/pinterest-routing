@@ -14,18 +14,24 @@ class SingleBoard extends React.Component {
 
   getPinData = (boardId) => {
     pinData.getPinsByBoardId(boardId)
-      .then((pins) => this.setState({ pins }))
-      .catch((err) => console.error('error in get pins', err));
+    .then((pins) => this.setState({ pins }))
+    .catch((err) => console.error('error in get pins', err));
   }
 
   componentDidMount() {
-    const { boardId } = this.props.match.params;
+    const { boardId } =  this.props.match.params;
     boardData.getSingleBoard(boardId)
       .then((response) => {
-        this.setState({ board: response.data });
+        this.setState({ board: response.data});
         this.getPinData(boardId);
       })
       .catch((err) => console.error('error in get single board', err));
+  }
+  deletePin = (pinId) => {
+    const { boardId } =  this.props.match.params;
+    pinData.deletePin(pinId)
+      .then(() => this.getPinData(boardId))
+      .catch((err) => console.error('error in delete pin', err));
   }
 
   render() {
@@ -35,7 +41,7 @@ class SingleBoard extends React.Component {
         <h1>{board.name}</h1>
         <p>{board.description}</p>
         <div className="pins d-flex flex-wrap">
-          { this.state.pins.map((pin) => <Pin key={pin.id} pin={pin}/>) }
+          { this.state.pins.map((pin) => <Pin key={pin.id} pin={pin} deletePin={this.deletePin}/>) }
         </div>
       </div>
     );
@@ -43,3 +49,6 @@ class SingleBoard extends React.Component {
 }
 
 export default SingleBoard;
+
+// SingleBoard is where state lives for pins
+// you have to do your axios calls where your state is

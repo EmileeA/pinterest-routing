@@ -12,8 +12,6 @@ class Home extends React.Component {
     boards: [],
   }
 
-  // you do your axios calls where the state is
-
   getBoards = () => {
     boardData.getBoardsByUid(authData.getUid())
       .then((boards) => this.setState({ boards }))
@@ -26,8 +24,8 @@ class Home extends React.Component {
 
   deleteBoard = (boardId) => {
     boardData.deleteBoard(boardId)
-      .then()
-      .catch((error) => console.error('error delteing board', error));
+      .then(() => this.getBoards())
+      .catch((err) => console.error('error deleting board', err));
   }
 
   render() {
@@ -35,7 +33,7 @@ class Home extends React.Component {
       <div className="Home">
         <h1>HOME</h1>
         <div className="boards d-flex flex-wrap">
-          {this.state.boards.map((board) => <Board key={board.id} board={board} deleteBoard={this.deleteBoard} />)}
+          {this.state.boards.map((board) => <Board key={board.id} board={board} deleteBoard={this.deleteBoard}/>)}
         </div>
       </div>
     );
