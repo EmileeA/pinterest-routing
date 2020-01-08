@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Proptypes from 'prop-types';
+
 import boardShape from '../../../helpers/propz/boardShape';
 
 import './Board.scss';
