@@ -37,8 +37,6 @@ firebaseConnection();
 // Route is individual routes
 // finds a route if it doesn't find the matching route
 
-// EMILEE EMILEE USE YOUR PINTEREST ONE
-
 class App extends React.Component {
   state = {
     authed: false,
