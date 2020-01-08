@@ -2,7 +2,7 @@
     "board1": {
       "name": "Cats",
       "description": "Nothing but the greatest creatures on earth.",
-      "uid": "HcQAuWwYm6RcMbvhQrDtS77KNYr2"
+      "uid": "WXUdQzb2otQSJgc0uiKsQaAk3Zr1"
     },
     "board2": {
       "name": "Bears",
@@ -12,6 +12,6 @@
     "board3": {
       "name": "Trucks",
       "description": "A board with lots of trucks",
-      "uid": "12345"
+      "uid": "WXUdQzb2otQSJgc0uiKsQaAk3Zr1"
     }
   }
